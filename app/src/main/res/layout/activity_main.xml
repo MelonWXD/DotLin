@@ -18,15 +18,36 @@
 
         </FrameLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_drawer_left"
-            android:layout_width="120dp"
+        <RelativeLayout
+            android:id="@+id/drawer_left"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:choiceMode="singleChoice"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:choiceMode="singleChoice">
 
-        </android.support.v7.widget.RecyclerView>
+
+            <ImageView
+                android:id="@+id/civ_header"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_avatar" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_drawer_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/civ_header"
+                android:layout_gravity="start"
+                android:background="@color/colorPrimary"
+                android:choiceMode="singleChoice">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
 
 
     </android.support.v4.widget.DrawerLayout>

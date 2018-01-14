@@ -16,8 +16,10 @@ import com.dongua.dotlin.di.modules.AppModule
  * data: On 18-1-10.
  */
 class MyApp : Application() {
+    companion object {
+        lateinit var appComponent: AppComponent
 
-    lateinit var appComponent: AppComponent
+    }
 
 
 

@@ -7,7 +7,12 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Adapter
+import com.dongua.dotlin.MyApp
 import com.dongua.dotlin.R
+import com.dongua.dotlin.di.components.ActivityComponent
+import com.dongua.dotlin.di.components.DaggerActivityComponent
+import com.dongua.dotlin.di.modules.ActivityModule
+import com.dongua.dotlin.di.modules.AppModule
 import com.dongua.dotlin.mvp.BaseView
 import com.dongua.dotlin.mvp.presenter.MainPresenter
 import com.dongua.dotlin.ui.adapter.NoteAdapter
@@ -27,9 +32,16 @@ class MainActivity : AppCompatActivity(), BaseView {
     @Inject
     lateinit var mAppContext:Context
 
+    lateinit var mActivityConponent:ActivityComponent
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mActivityConponent = DaggerActivityComponent.builder()
+                .appComponent(MyApp.appComponent)
+                .activityModule(ActivityModule(this))
+                .build()
 
         initRecyclerView()
         initFragment()
@@ -42,9 +54,8 @@ class MainActivity : AppCompatActivity(), BaseView {
 
     }
     private fun initFragment() {
-        val noteFragment: Fragment = NoteFragment()
         supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_drawer_content, noteFragment)
+                .replace(R.id.fl_drawer_content, NoteFragment())
                 .commit()
     }
 

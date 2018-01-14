@@ -5,6 +5,7 @@ import com.dongua.dotlin.MyApp
 import com.dongua.dotlin.di.qualifier.ActivityContext
 import com.dongua.dotlin.di.qualifier.AppContext
 import com.dongua.dotlin.mvp.BaseView
+import com.dongua.dotlin.util.ToastUtil
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -21,4 +22,10 @@ class AppModule(context: Context) {
     @Provides
     @Singleton
     fun provideContext() = appContext
+
+    @Provides
+    @Singleton
+    fun provideToastUtil(): ToastUtil {
+        return ToastUtil(appContext)
+    }
 }
