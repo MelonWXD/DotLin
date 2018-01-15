@@ -14,6 +14,7 @@ import com.dongua.dotlin.ui.adapter.NoteAdapter
 import com.dongua.dotlin.ui.base.BaseActivity
 import com.dongua.dotlin.ui.fragment.NoteFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_recycler_drawer_left.*
 import javax.inject.Inject
 
 /**
