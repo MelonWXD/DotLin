@@ -10,46 +10,47 @@ import android.view.View
 import android.view.ViewGroup
 import com.dongua.dotlin.R
 import com.dongua.dotlin.ui.activity.MainActivity
+import com.dongua.dotlin.ui.base.fragment.BaseToolBarFragment
 import javax.inject.Inject
 
 /**
  * author: Lewis
  * data: On 18-1-13.
  */
-class NoteFragment : Fragment(),NoteView {
+class NoteFragment : BaseToolBarFragment(), NoteView {
 
 
+    override val layoutId: Int
+        get() = R.layout.fragment_note
 
-//    @BindView(R.id.fab_addNote)
+    //    @BindView(R.id.fab_addNote)
     lateinit var mAddNoteBtn: FloatingActionButton
 
     @Inject
-    lateinit var mPresenter:NotePresenter
+    lateinit var mPresenter: NotePresenter
 
 
-
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-
+    override fun initWidget(root: View) {
         (activity as MainActivity).mActivityConponent.getNoteFragmentComponent().inject(this)
         mPresenter.attachView(this)
 
 
-    }
-
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
-        val rootView = inflater.inflate(R.layout.fragment_note, container, false)
-
-        mAddNoteBtn = rootView.findViewById(R.id.fab_addNote)
+        mAddNoteBtn = root.findViewById(R.id.fab_addNote)
         mAddNoteBtn.setOnClickListener {
 
         }
-        return rootView
     }
+
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+//
+//        val rootView = inflater.inflate(R.layout.fragment_note, container, false)
+//
+//        mAddNoteBtn = rootView.findViewById(R.id.fab_addNote)
+//        mAddNoteBtn.setOnClickListener {
+//
+//        }
+//        return rootView
+//    }
 
 
     override fun onDestroy() {

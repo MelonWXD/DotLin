@@ -1,13 +1,11 @@
-package com.dongua.dotlin.ui.base
+package com.dongua.dotlin.ui.base.activity
 
-import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import butterknife.ButterKnife
 import com.dongua.dotlin.util.isMIUI
 
 

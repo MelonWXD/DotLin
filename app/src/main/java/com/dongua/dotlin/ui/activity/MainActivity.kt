@@ -11,16 +11,16 @@ import com.dongua.dotlin.di.modules.ActivityModule
 import com.dongua.dotlin.ui.base.MvpView
 
 import com.dongua.dotlin.ui.adapter.NoteAdapter
-import com.dongua.dotlin.ui.base.BaseActivity
+import com.dongua.dotlin.ui.base.activity.BaseActivity
 import com.dongua.dotlin.ui.fragment.NoteFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.layout_recycler_drawer_left.*
 import javax.inject.Inject
 
 /**
  * author: Lewis
  * data: On 18-1-10.
  */
+// DrawerLayout不能和动态添加的Toolbar公用
 class MainActivity : BaseActivity(), MvpView {
 
 
