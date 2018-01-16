@@ -22,18 +22,14 @@ import javax.inject.Inject
  */
 // DrawerLayout不能和动态添加的Toolbar公用
 class MainActivity : BaseActivity(), MvpView {
-
-
+    override val layoutId: Int
+        get() = R.layout.activity_main
 
 
     @Inject
     lateinit var mAppContext: Context
 
     lateinit var mActivityConponent: ActivityComponent
-
-    override fun getLayoutID(): Int {
-        return R.layout.activity_main
-    }
 
 
     override fun initWidget() {

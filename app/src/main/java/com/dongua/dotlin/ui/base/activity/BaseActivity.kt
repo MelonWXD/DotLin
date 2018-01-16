@@ -15,9 +15,11 @@ import com.dongua.dotlin.util.isMIUI
  */
 abstract class BaseActivity : AppCompatActivity() {
 
+    protected abstract val layoutId: Int
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutID())
+        setContentView(layoutId)
 
         setTranslucentStatus()
         initBundle(savedInstanceState)
@@ -40,8 +42,8 @@ abstract class BaseActivity : AppCompatActivity() {
     protected open fun initBundle(savedInstanceState: Bundle?) {}
     protected open fun saveBundle(outState: Bundle){}
 
-
-    protected abstract fun getLayoutID(): Int
+//     replace with member
+//    protected abstract fun getLayoutID(): Int
     protected abstract fun initWidget()
     protected abstract fun initData()
 
