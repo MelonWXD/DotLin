@@ -2,12 +2,15 @@ package com.dongua.dotlin.ui.fragment
 
 
 import android.content.Context
+import android.graphics.drawable.Animatable
+import android.media.Image
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.dongua.dotlin.R
 import com.dongua.dotlin.ui.activity.MainActivity
 import com.dongua.dotlin.ui.base.fragment.BaseToolBarFragment
@@ -30,14 +33,16 @@ class NoteFragment : BaseToolBarFragment(), NoteView {
     lateinit var mPresenter: NotePresenter
 
 
+
     override fun initWidget(root: View) {
         (activity as MainActivity).mActivityConponent.getNoteFragmentComponent().inject(this)
         mPresenter.attachView(this)
 
 
+
         mAddNoteBtn = root.findViewById(R.id.fab_addNote)
         mAddNoteBtn.setOnClickListener {
-
+            (mToolBar.findViewById<ImageView>(R.id.iv_tb_back).drawable as Animatable).start()
         }
     }
 
