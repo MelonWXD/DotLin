@@ -1,5 +1,6 @@
 package com.dongua.dotlin.ui.base.fragment
 
+import android.app.ActionBar
 import android.media.Image
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.Toolbar
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout
 import com.dongua.dotlin.MyApp
 import com.dongua.dotlin.R
 import kotlinx.android.synthetic.main.layout_toolbar_fragment.*
+import com.dongua.dotlin.util.getStatusBarHeight
 
 /**
  * author: Lewis
@@ -41,7 +43,10 @@ abstract class BaseToolBarFragment : BaseFragment() {
 
 
     open fun setCustomToolbar(toolbar: RelativeLayout) {
-        toolbar.findViewById<ImageView>(R.id.iv_tb_back).setImageDrawable(ResourcesCompat.getDrawable(resources,R.drawable.anim_tb_back,activity.theme))
+        mToolBarLayout.setPadding(mToolBarLayout.paddingLeft, getStatusBarHeight(activity), mToolBarLayout.paddingRight, mToolBarLayout.paddingBottom)
+
+        mToolBar.findViewById<ImageView>(R.id.iv_tb_back).setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.anim_tb_back, activity.theme))
+
 //        iv_tb_back.drawable = ResourcesCompat.getDrawable(resources,R.drawable.ic_toolbar_back,null)
     }
 

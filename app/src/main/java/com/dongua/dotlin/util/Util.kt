@@ -1,5 +1,6 @@
 package com.dongua.dotlin.util
 
+import android.content.Context
 import android.os.Build
 import android.os.Environment
 import java.io.File
@@ -34,4 +35,14 @@ fun isMIUI(): Boolean {
     } else {
         return false
     }
+}
+
+fun getStatusBarHeight(context: Context): Int {
+    var result = 0
+    val resourceId = context.getResources().getIdentifier("status_bar_height", "dimen",
+            "android")
+    if (resourceId > 0) {
+        result = context.getResources().getDimensionPixelSize(resourceId)
+    }
+    return result
 }

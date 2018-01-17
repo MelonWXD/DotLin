@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/blue600"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lay_20"
-        android:background="@color/blue600" />
 
     <RelativeLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/lay_44"
-        android:background="@color/blue600"
+        android:layout_height="@dimen/lay_48"
         android:paddingLeft="@dimen/lay_4">
 
         <ImageView

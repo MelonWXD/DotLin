@@ -1,5 +1,6 @@
 package com.dongua.dotlin.ui.base.activity
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -22,6 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(layoutId)
 
         setTranslucentStatus()
+//        getWindow().statusBarColor=Color.BLUE
         initBundle(savedInstanceState)
         initWidget()
         initData()
