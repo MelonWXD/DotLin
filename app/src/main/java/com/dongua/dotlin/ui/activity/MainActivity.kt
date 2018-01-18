@@ -8,6 +8,7 @@ import com.dongua.dotlin.R
 import com.dongua.dotlin.di.components.ActivityComponent
 import com.dongua.dotlin.di.components.DaggerActivityComponent
 import com.dongua.dotlin.di.modules.ActivityModule
+import com.dongua.dotlin.ui.adapter.DrawerAdapter
 import com.dongua.dotlin.ui.base.MvpView
 
 import com.dongua.dotlin.ui.adapter.NoteAdapter
@@ -58,7 +59,7 @@ class MainActivity : BaseActivity(), MvpView {
 
     private fun initDrawer() {
         rv_drawer_left.layoutManager = LinearLayoutManager(this)
-        rv_drawer_left.adapter = NoteAdapter(this)
+        rv_drawer_left.adapter = DrawerAdapter(this)
 
 
     }

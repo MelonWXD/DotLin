@@ -4,8 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <CheckBox
+        android:id="@+id/rv_drawer_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/rv_drawer_btn"
+        android:layout_toRightOf="@+id/rv_drawer_cb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
