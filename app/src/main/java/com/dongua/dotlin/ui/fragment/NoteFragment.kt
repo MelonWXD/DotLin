@@ -44,7 +44,8 @@ class NoteFragment : BaseToolBarFragment(), NoteView {
         mNoteRecycler = root.findViewById(R.id.rv_notes)
         mNoteRecycler.layoutManager = LinearLayoutManager(activity)
         mNoteRecycler.adapter = NoteAdapter(activity)
-        var itemTouchHelper = ItemTouchHelper(ItemDraggerCallBack())
+        val itemTouchHelper = ItemTouchHelper(ItemDraggerCallBack(mNoteRecycler.adapter as NoteAdapter))
+
         itemTouchHelper.attachToRecyclerView(mNoteRecycler)
 
 

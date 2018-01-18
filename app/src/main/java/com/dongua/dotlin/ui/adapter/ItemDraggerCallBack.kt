@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import com.dongua.dotlin.R
+import com.dongua.dotlin.util.ToastUtil
 import java.util.*
 import java.util.logging.Logger
 
@@ -14,9 +15,12 @@ import java.util.logging.Logger
  * author: Lewis
  * data: On 18-1-18.
  */
-class ItemDraggerCallBack : ItemTouchHelper.Callback() {
+class ItemDraggerCallBack(listener: OnSwipeListener) : ItemTouchHelper.Callback() {
+
+    val mListener = listener
 
     override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+
         if (recyclerView.layoutManager is GridLayoutManager) {
 
             val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN or
@@ -25,7 +29,7 @@ class ItemDraggerCallBack : ItemTouchHelper.Callback() {
             return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
         } else {
             val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
-            val swipeFlags = 0
+            val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
             return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
         }
 
@@ -55,6 +59,12 @@ class ItemDraggerCallBack : ItemTouchHelper.Callback() {
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        if (direction == ItemTouchHelper.START) {
+            mListener.onRemove(viewHolder.adapterPosition)
+        }else{
+            mListener.onEdit(viewHolder.adapterPosition)
+        }
+
     }
 
     override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {

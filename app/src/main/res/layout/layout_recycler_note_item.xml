@@ -7,7 +7,8 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    android:padding="@dimen/lay_8">
+    android:padding="@dimen/lay_8"
+    android:paddingBottom="0dp">
 
     <CheckBox
         android:id="@+id/cb_done"
@@ -23,7 +24,6 @@
         android:layout_toRightOf="@+id/cb_done"
         android:maxLines="3"
         android:padding="@dimen/lay_2"
-        android:text="asdadasdasdasdasdasdas"
         android:textSize="@dimen/font_16" />
 
 

@@ -15,14 +15,16 @@ import android.widget.TextView
 import com.dongua.dotlin.R
 import java.util.*
 import com.dongua.dotlin.R.id.swipeLayout
-
+import com.dongua.dotlin.util.ToastUtil
 
 
 /**
  * author: Lewis
  * data: On 18-1-13.
  */
-class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(), OnSwipeListener {
+
+
     var dataList: ArrayList<String> = ArrayList(10)
 
     init {
@@ -41,10 +43,10 @@ class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteV
 //        holder.itemView.setBackgroundColor(Color.LTGRAY)
         holder.noteText.text = dataList[position]
         holder.doneCheck.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked)
-                holder.noteText.paintFlags= Paint.STRIKE_THRU_TEXT_FLAG
+            if (isChecked)
+                holder.noteText.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             else
-                holder.noteText.paintFlags= 0
+                holder.noteText.paintFlags = 0
 
         }
     }
@@ -57,9 +59,19 @@ class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteV
 
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var noteText: TextView = itemView.findViewById(R.id.tv_note)
-        var doneCheck:CheckBox = itemView.findViewById(R.id.cb_done)
+        var doneCheck: CheckBox = itemView.findViewById(R.id.cb_done)
 
     }
 
 
+    override fun onEdit(pos: Int) {
+        ToastUtil.shortToast(context, "onEdit:$pos")
+        dataList[pos]="wxdwxd"
+        notifyItemChanged(pos)
+    }
+
+    override fun onRemove(pos: Int) {
+        dataList.removeAt(pos)
+        notifyItemRemoved(pos)
+    }
 }
