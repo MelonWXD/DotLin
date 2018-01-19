@@ -25,6 +25,7 @@
         android:padding="@dimen/lay_2"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:layout_anchorGravity="bottom|right|end" />
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/svg_plus"/>
 
 </FrameLayout>

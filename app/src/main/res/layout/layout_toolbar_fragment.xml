@@ -10,16 +10,39 @@
 
     <RelativeLayout
         android:id="@+id/toolbar"
+        android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="@dimen/lay_48"
         android:paddingLeft="@dimen/lay_4">
 
         <ImageView
-            android:id="@+id/iv_tb_back"
-            android:layout_width="@dimen/lay_36"
-            android:layout_height="@dimen/lay_36"
-            android:layout_centerVertical="true"/>
+            android:id="@+id/iv_tb_left1"
+            style="@style/toolbar_image"
+            android:visibility="visible"/>
 
+        <ImageView
+            android:id="@+id/iv_tb_left2"
+            style="@style/toolbar_image"
+            android:layout_toRightOf="@+id/iv_tb_left1" />
+
+        <TextView
+            android:id="@+id/tv_tb_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/iv_tb_right2"
+            android:layout_toRightOf="@id/iv_tb_left2"
+            android:gravity="center"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/iv_tb_right1"
+            style="@style/toolbar_image"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:id="@+id/iv_tb_right2"
+            style="@style/toolbar_image"
+            android:layout_toLeftOf="@+id/iv_tb_right1" />
 
 
     </RelativeLayout>

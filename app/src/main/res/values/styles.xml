@@ -22,4 +22,15 @@
         <item name="android:background">@color/gray</item>
     </style>
 
+
+    <style name="toolbar_image">
+        <item name="android:padding">@dimen/lay_4</item>
+        <item name="android:layout_margin">@dimen/lay_4</item>
+        <item name="android:layout_width">@dimen/lay_36</item>
+        <item name="android:layout_height">@dimen/lay_36</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
 </resources>

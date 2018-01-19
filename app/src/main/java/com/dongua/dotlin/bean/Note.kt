@@ -9,12 +9,20 @@ import org.greenrobot.greendao.annotation.Id
  */
 @Entity
 class Note {
+    constructor(content: String, impLevel: Int, isDone: Boolean = false) {
+        this.content = content
+        this.impLevel = impLevel
+        this.isDone = isDone
+    }
+
     @Id(autoincrement = true)
     val id: Long? = null
-    val author: String? = null
-    val content: String? = null
-    val updateTime: Long? = null
-    val createTime: Long? = null
-    val alertTIme: Long? = null
+    var author: String? = null
+    var content: String? = null
+    var updateTime: Long? = null
+    var createTime: Long? = null
+    var alertTIme: Long? = null
+    var impLevel: Int? = null
+    var isDone: Boolean  = false
 
 }
