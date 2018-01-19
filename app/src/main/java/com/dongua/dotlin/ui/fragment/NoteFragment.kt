@@ -87,7 +87,7 @@ class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener, OnItemCli
     }
 
     override fun onToolBarClick(v: View) {
-        super.onToolBarClick(v)
+//        super.onToolBarClick(v)
         when (v.id) {
             R.id.iv_tb_left1 -> {
             }
@@ -134,7 +134,14 @@ class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener, OnItemCli
     }
 
     override fun onItemClick(pos: Int) {
-        ToastUtil.shortToast(context, "onClick:$pos")
+//        ToastUtil.shortToast(context, "onClick:$pos")
+        val to = EditFragment.newInstance( (mNoteRecycler.adapter as NoteAdapter).dataList[pos])
+        val ft = fragmentManager.beginTransaction()
 
+        ft.detach(this)
+        ft.replace(R.id.fl_drawer_content, to).commit()
+//        ft.detach(this)
+//        ft.attach(to)
+//        ft.commit()
     }
 }

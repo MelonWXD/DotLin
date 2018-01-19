@@ -1,5 +1,6 @@
 package com.dongua.dotlin.ui.activity
 
+import android.support.v4.app.Fragment
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -69,6 +70,7 @@ class MainActivity : BaseActivity(), MvpView {
                 .replace(R.id.fl_drawer_content, NoteFragment())
                 .commit()
     }
+
 
 }
 

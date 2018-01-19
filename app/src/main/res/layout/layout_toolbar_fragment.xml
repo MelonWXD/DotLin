@@ -10,15 +10,15 @@
 
     <RelativeLayout
         android:id="@+id/toolbar"
-        android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="@dimen/lay_48"
+        android:clickable="false"
         android:paddingLeft="@dimen/lay_4">
 
         <ImageView
             android:id="@+id/iv_tb_left1"
             style="@style/toolbar_image"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/iv_tb_left2"

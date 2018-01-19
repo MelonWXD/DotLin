@@ -61,9 +61,7 @@ abstract class BaseToolBarFragment : BaseFragment() ,View.OnClickListener{
         onToolBarClick(v)
     }
 
-    open fun onToolBarClick(v: View) {
-
-    }
+    abstract fun onToolBarClick(v: View)
 
     open fun setCustomToolbar(toolbar: RelativeLayout) {
         mToolBar.findViewById<ImageView>(R.id.iv_tb_left1).setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.anim_tb_back, activity.theme))

@@ -2,13 +2,14 @@ package com.dongua.dotlin.bean
 
 import org.greenrobot.greendao.annotation.Entity
 import org.greenrobot.greendao.annotation.Id
+import java.io.Serializable
 
 /**
  * author: Lewis
  * data: On 18-1-11.
  */
 @Entity
-class Note {
+class Note : Serializable {
     constructor(content: String, impLevel: Int, isDone: Boolean = false) {
         this.content = content
         this.impLevel = impLevel
@@ -23,6 +24,6 @@ class Note {
     var createTime: Long? = null
     var alertTIme: Long? = null
     var impLevel: Int? = null
-    var isDone: Boolean  = false
+    var isDone: Boolean = false
 
 }

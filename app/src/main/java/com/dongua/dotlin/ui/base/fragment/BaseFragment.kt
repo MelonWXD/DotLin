@@ -18,7 +18,7 @@ abstract class BaseFragment : Fragment() {
     private lateinit var mInflater: LayoutInflater
     protected lateinit var mContext: Context
     protected lateinit var mRoot: View
-    protected var mBundle: Bundle? = null//获取setArguments的值
+
 
 
     protected abstract val layoutId: Int
@@ -38,9 +38,9 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBundle = arguments
-        //mBundle非空判断是否要放在base?
-        initArguments(mBundle)
+
+        //arguments是否要非空判断?
+        initArguments(arguments)
         initBundle(savedInstanceState)
 
 
@@ -82,7 +82,7 @@ abstract class BaseFragment : Fragment() {
 
     }
 
-    open protected fun initWidget(root: View){}
+    protected abstract fun initWidget(root: View)
 
-    open protected fun initData(){}
+    open protected fun initData() {}
 }
