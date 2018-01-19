@@ -26,7 +26,7 @@ import android.support.v4.content.ContextCompat
  * author: Lewis
  * data: On 18-1-13.
  */
-class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(val context: Context,val listener: OnItemClickListener) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     enum class ImportantLevel {
         URGENT, NORMAL, EASE
     }
@@ -58,6 +58,10 @@ class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteV
 //        holder.itemView.setBackgroundColor(Color.LTGRAY)
 //        if(!isSeeFlag)
 //            return
+        holder.itemView.setOnClickListener{
+            listener.onItemClick(position)
+        }
+
         holder.noteText.text = dataList[position].content
 
         holder.doneCheck.setOnCheckedChangeListener { _, isChecked ->

@@ -8,3 +8,6 @@ interface OnSwipeListener{
     fun onEdit(pos:Int)
     fun onRemove(pos:Int)
 }
+interface OnItemClickListener{
+    fun onItemClick(pos:Int)
+}

@@ -16,6 +16,7 @@ import com.dongua.dotlin.ui.activity.MainActivity
 import com.dongua.dotlin.ui.adapter.NoteAdapter
 import com.dongua.dotlin.ui.base.fragment.BaseToolBarFragment
 import com.dongua.dotlin.ui.adapter.ItemDraggerCallBack
+import com.dongua.dotlin.ui.adapter.OnItemClickListener
 import com.dongua.dotlin.ui.adapter.OnSwipeListener
 import com.dongua.dotlin.util.ToastUtil
 import javax.inject.Inject
@@ -25,7 +26,7 @@ import javax.inject.Inject
  * author: Lewis
  * data: On 18-1-13.
  */
-class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener {
+class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener, OnItemClickListener {
 
 
     override val layoutId: Int
@@ -52,7 +53,7 @@ class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener {
         mAddNoteBtn = root.findViewById(R.id.fab_addNote)
         mNoteRecycler = root.findViewById(R.id.rv_notes)
         mNoteRecycler.layoutManager = LinearLayoutManager(activity)
-        mNoteRecycler.adapter = NoteAdapter(activity)
+        mNoteRecycler.adapter = NoteAdapter(activity,this)
         val itemTouchHelper = ItemTouchHelper(ItemDraggerCallBack(this))
 
         itemTouchHelper.attachToRecyclerView(mNoteRecycler)
@@ -121,6 +122,7 @@ class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener {
 //        val price_true = contentView1.findViewById(R.id.s_ok) as Button
     }
 
+    //will not call
     override fun onEdit(pos: Int) {
         ToastUtil.shortToast(context, "onEdit:$pos")
         mNoteRecycler.adapter.notifyItemChanged(pos)
@@ -131,5 +133,8 @@ class NoteFragment : BaseToolBarFragment(), NoteView, OnSwipeListener {
         mNoteRecycler.adapter.notifyItemRemoved(pos)
     }
 
+    override fun onItemClick(pos: Int) {
+        ToastUtil.shortToast(context, "onClick:$pos")
 
+    }
 }

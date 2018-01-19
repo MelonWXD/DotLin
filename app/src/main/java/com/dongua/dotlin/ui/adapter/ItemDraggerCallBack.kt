@@ -29,7 +29,8 @@ class ItemDraggerCallBack(listener: OnSwipeListener) : ItemTouchHelper.Callback(
             return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
         } else {
             val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
-            val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
+            val swipeFlags = ItemTouchHelper.START
+//            val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
             return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
         }
 
